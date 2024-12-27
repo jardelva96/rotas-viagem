@@ -141,8 +141,3 @@ Exemplo de Resposta:
 - Exibição das rotas existentes.
 - Acessando
 - Abra o navegador e acesse http://localhost:3000.
-
-## 📦 Exportação do Postman
-- No Postman, selecione a coleção chamada Rotas Viagem.
-- Clique em Export.
-- Escolha o formato JSON e salve na pasta postman do projeto.
