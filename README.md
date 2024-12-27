@@ -64,7 +64,7 @@ rotas_viagem/
 - Clone o Repositório
 
 ```plaintext
-git clone https://github.com/seu-usuario/rotas-viagem.git
+git clone https://github.com/jardelva96/rotas-viagem.git
 cd rotas-viagem
 ```
 - Instale as Dependências
