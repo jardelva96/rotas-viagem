@@ -44,8 +44,6 @@ rotas_viagem/
 │   ├── dijkstra.js         # Algoritmo de menor caminho
 │   ├── public/             # Arquivos da interface gráfica
 │   │   ├── index.html      # Página principal da interface gráfica
-│   │   ├── style.css       # Estilos da interface gráfica
-│   │   └── script.js       # JavaScript para interatividade
 ├── tests/                  # Testes unitários
 │   ├── csv_handler.test.js # Testes do manipulador de CSV
 │   ├── dijkstra.test.js    # Testes do algoritmo de Dijkstra
