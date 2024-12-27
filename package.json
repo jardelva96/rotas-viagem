@@ -1,0 +1,20 @@
+{
+  "name": "rotas_viagem",
+  "version": "1.0.0",
+  "description": "Aplicação para encontrar a melhor rota usando o algoritmo de Dijkstra.",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "console": "node src/console.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "author": "",
+  "license": "ISC"
+}

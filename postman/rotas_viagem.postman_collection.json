@@ -1,0 +1,67 @@
+{
+	"info": {
+		"_postman_id": "121e62a7-b447-4226-8180-040a4de8bb95",
+		"name": "Rotas Viagem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39688911"
+	},
+	"item": [
+		{
+			"name": "existing-routes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/best-route?from=BRC&to=SCL",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"best-route"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "BRC"
+						},
+						{
+							"key": "to",
+							"value": "SCL"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add-route",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"origin\": \"TEST\",\r\n  \"destination\": \"DEST\",\r\n  \"cost\": 50\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/add-route",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"add-route"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

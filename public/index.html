@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rotas de Viagem</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      align-items: center;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Rotas de Viagem</h1>
+    <h2>Rotas Existentes</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Origem</th>
+          <th>Destino</th>
+          <th>Custo</th>
+        </tr>
+      </thead>
+      <tbody id="routes-table">
+        <!-- Rotas existentes serão carregadas aqui -->
+      </tbody>
+    </table>
+
+    <h2>Consultar Melhor Rota</h2>
+    <form id="best-route-form">
+      <div class="form-group">
+        <label for="from">Origem:</label>
+        <input type="text" id="from" required />
+      </div>
+      <div class="form-group">
+        <label for="to">Destino:</label>
+        <input type="text" id="to" required />
+      </div>
+      <button type="submit">Consultar</button>
+    </form>
+
+    <h3 id="best-route-result"></h3>
+  </div>
+
+  <script>
+    // Carregar rotas existentes
+    async function loadRoutes() {
+      const response = await fetch('/existing-routes');
+      const routes = await response.json();
+      const table = document.getElementById('routes-table');
+      table.innerHTML = '';
+      routes.forEach(route => {
+        const row = `<tr>
+          <td>${route.origin}</td>
+          <td>${route.destination}</td>
+          <td>${route.cost}</td>
+        </tr>`;
+        table.innerHTML += row;
+      });
+    }
+
+    // Consultar melhor rota
+    document.getElementById('best-route-form').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const from = document.getElementById('from').value;
+      const to = document.getElementById('to').value;
+
+      const response = await fetch(`/best-route?from=${from}&to=${to}`);
+      const result = await response.json();
+
+      const resultElement = document.getElementById('best-route-result');
+      if (response.ok) {
+        resultElement.textContent = `Melhor Rota: ${result.route} ao custo de $${result.cost}`;
+      } else {
+        resultElement.textContent = `Erro: ${result.error}`;
+      }
+    });
+
+    // Inicializar
+    loadRoutes();
+  </script>
+</body>
+</html>
